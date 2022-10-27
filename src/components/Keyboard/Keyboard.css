@@ -9,6 +9,10 @@
     background-color: var(--btn-numbers-color);
     font-weight: 500;
 }
+.number:active, .box0:active{
+    background-color: var(--btn-numbers-active);
+    transition: .3s ease-in-out;
+}
 .box0{
     grid-column-start: 1;
     grid-column-end: 3;
@@ -26,9 +30,17 @@
     font-size: 1.5rem;
     font-weight: 500;
 }
+.special-operation:active{
+    background-color: var(--btn-special-operations-active);
+    transition: .3s ease-in-out;
+}
 .operation{
     background-color: var(--btn-operations-color);
     color: #fff;
     padding-bottom: 12%;
     font-weight: 500;
+}
+.operation:active{
+    background-color: var(--btn-operations-active);
+    transition: .3s ease-in-out;
 }

@@ -6,7 +6,16 @@ body{
     --bg-calculator-color:#000000;
 
     --btn-numbers-color:#333333;
+    --btn-numbers-active:#737373;
+
     --btn-special-operations-color:#A5A5A5;
+    --btn-special-operations-active:#D9D9D9;
+
     --btn-operations-color:#FF9F0A;
+    --btn-operations-active:#FCC68F;
+
+    /*Permanently operations*/
+    --btn-bg-active:#FCC68F;
+    --btn-text-active:#FF9F0C;
 
 }
