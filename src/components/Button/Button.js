@@ -10,7 +10,7 @@ const Button = (props) => {
     }
     return(
         <>
-            <button onClick={showDigit} className={props.class} value={props.name}>{props.name}</button>
+            <button onClick={showDigit} className={props.class} value={props.value}>{props.name}</button>
         </>
     )
 }

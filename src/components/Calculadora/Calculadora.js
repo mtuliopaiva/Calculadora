@@ -7,29 +7,19 @@ import { useState} from 'react'
 
 const Calculadora = () => {
 
-    const [inputDisplay,setInputDisplay] = useState('0');
-    const [valores,setValores] = useState([0,0]);
+    const [inputDisplay,setInputDisplay] = useState('');
+    const [valor,setValor] = useState('0');
 
-
-    const insereNum = (val) => {
-        setInputDisplay(inputDisplay + val);
-        console.log(valores[1]);
+    /*d é o dígito*/ 
+    const insereNum = (d) => {
         
-        
-        
-        // console.log(num1);
-        
-        if(val ==='+'){
-            setInputDisplay('0');
-            console.log(inputDisplay);
-            
-            // setInput(input + val);
-            // let num2 = parseFloat(input);
-            // setValores(0,num2);
-            // console.log(num1);
-            // console.log(num2);
-            
+        setInputDisplay(inputDisplay + d);
+        if(d ==='='){
+            let r = eval(inputDisplay);
+            console.log(r);
+            setInputDisplay(r);
         }
+        
     }
 
     return(
