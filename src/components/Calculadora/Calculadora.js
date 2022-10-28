@@ -12,26 +12,22 @@ const Calculadora = () => {
 
     /*d é o dígito*/ 
     const insereNum = (d) => {
+        setInputDisplay(inputDisplay + d);
+        // console.log(valorDigitado);
+        
+        // console.log(valor);
         
         if(d =='+' ||d =='-' ||d =='/' ||d =='*' ){
             console.log("Operações");
-            console.log(valor);
+            // console.log(valor);
         }
         
         if(d ==='='){
-            try{
                 let r = eval(inputDisplay);
-                console.log(r);
-                setInputDisplay(parseFloat(r));
-            }
-            catch{
-                setInputDisplay('error');
-            }
-  
+                setInputDisplay(r);
+                console.log("Igual");
         }
-        setInputDisplay(inputDisplay + d);
-        setValor(inputDisplay + d);
-        
+    
     }
 
     return(
