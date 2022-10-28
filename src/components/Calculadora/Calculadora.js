@@ -8,17 +8,29 @@ import { useState} from 'react'
 const Calculadora = () => {
 
     const [inputDisplay,setInputDisplay] = useState('');
-    const [valor,setValor] = useState('0');
+    const [valor,setValor] = useState('');
 
     /*d é o dígito*/ 
     const insereNum = (d) => {
         
-        setInputDisplay(inputDisplay + d);
-        if(d ==='='){
-            let r = eval(inputDisplay);
-            console.log(r);
-            setInputDisplay(r);
+        if(d =='+' ||d =='-' ||d =='/' ||d =='*' ){
+            console.log("Operações");
+            console.log(valor);
         }
+        
+        if(d ==='='){
+            try{
+                let r = eval(inputDisplay);
+                console.log(r);
+                setInputDisplay(parseFloat(r));
+            }
+            catch{
+                setInputDisplay('error');
+            }
+  
+        }
+        setInputDisplay(inputDisplay + d);
+        setValor(inputDisplay + d);
         
     }
 
