@@ -10,8 +10,8 @@ const Keyboard = (props) => {
     return(
         <div className='keys'>
             <Button name="AC" value='AC' class='special-operation'insertKeyboard={teste}/>
-            <Button name="+/-" value='*-1' class='special-operation'insertKeyboard={teste}/>
-            <Button name="%" value='/100' class='special-operation'insertKeyboard={teste}/>
+            <Button name="+/-" value='+/-' class='special-operation'insertKeyboard={teste}/>
+            <Button name="%" value='%' class='special-operation'insertKeyboard={teste}/>
             <Button name="÷" value='/' class='operation'insertKeyboard={teste}/>
             <Button name="7" value='7' class='number'insertKeyboard={teste}/>
             <Button name="8" value='8' class='number' insertKeyboard={teste}/>
