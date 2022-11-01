@@ -2,7 +2,8 @@ body{
     background-color: var(--bg-color);
 }
 :root{
-    --bg-color:#44749d;
+    /* --bg-color:#44749d; */
+    --bg-color:#e2e2e2;
     --bg-calculator-color:#000000;
 
     --btn-numbers-color:#333333;
