@@ -1,9 +1,11 @@
 import './Header.css'
-const Header = () => {
+const Header = (props) => {
+    
+
     return (
         <div className='header'>
             <div className='time'>
-                <p>15:28</p> 
+                <p>{props.horas}:{props.minutos}</p> 
             </div>
             <div className='extra'>
                 <img className='battery' src='./images/battery.svg' />

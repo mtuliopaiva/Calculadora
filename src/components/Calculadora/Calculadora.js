@@ -3,13 +3,15 @@ import Display from '../Display/Display'
 import Keyboard from '../Keyboard/Keyboard'
 import './Calculadora.css'
 import Header from '../Header/Header'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Calculadora = () => {
 
     const [inputDisplay, setInputDisplay] = useState(0);
     const [oldValue, setOldValue] = useState('');
     const [operator, setOperator] = useState('');
+    const [hour, setHour] = useState('');
+    const [minute, setMinute] = useState('');
 
     /*d é o dígito*/
     const insereNum = (d) => {
@@ -41,7 +43,7 @@ const Calculadora = () => {
                     console.log(inputDisplay);
                     let r = oldValue + operator + inputDisplay;
                     let result = eval(r);
-                    
+
 
                     console.log(result);
                     let stringResult = result.toString();
@@ -50,11 +52,11 @@ const Calculadora = () => {
                     if (stringResult.length > 9) {
                         console.log("Condição 1")
                         let expResult = result.toExponential(3);
-                        
+
                         setInputDisplay(expResult);
                     }
                     else {
-                        
+
                         setInputDisplay(result);
                     }
 
@@ -102,10 +104,22 @@ const Calculadora = () => {
         }
 
     }
+    //----------------Relógio
+    var dataAtual = new Date();
+    var horas = dataAtual.getHours();
+    var minutos = dataAtual.getMinutes();
+    var segundos = dataAtual.getSeconds();
+    var msegundos = dataAtual.getMilliseconds();
+
+    const teste = () => {
+        setHour(horas);
+        setMinute(minutos);
+    }
+    setInterval(teste, 500);
 
     return (
         <div className='container'>
-            <Header />
+            <Header horas={horas} minutos={minutos}/>
             <Display disp={inputDisplay} />
             <Keyboard insertDisplay={insereNum} />
         </div>
