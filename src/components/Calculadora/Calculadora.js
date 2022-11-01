@@ -27,7 +27,6 @@ const Calculadora = () => {
         else {
             setInputDisplay(inputDisplay + d);
 
-
             if (d == '+' || d == '-' || d == '/' || d == '*') {
                 console.log("Operações");
                 setOperator(d);
@@ -36,25 +35,35 @@ const Calculadora = () => {
             }
 
             if (d === '=') {
-                if(operator !=''){
+                if (operator != '') {
                     console.log(oldValue);
                     console.log(operator);
                     console.log(inputDisplay);
                     let r = oldValue + operator + inputDisplay;
                     let result = eval(r);
-                    setInputDisplay(result);
+                    
+
+                    console.log(result);
+                    let stringResult = result.toString();
+                    console.log(stringResult.length);
+
+                    if (stringResult.length > 9) {
+                        console.log("Condição 1")
+                        let expResult = result.toExponential(3);
+                        
+                        setInputDisplay(expResult);
+                    }
+                    else {
+                        
+                        setInputDisplay(result);
+                    }
+
+
+
                 }
                 //Pressionado igual e operador é vazio
-                if(operator ==''){
-                    console.log("Condição 1");
-                   
-                    setOldValue(parseFloat(inputDisplay));
-                    setInputDisplay(parseFloat('0'));
-                    let r = inputDisplay + oldValue;
-                    console.log(oldValue);
-                    console.log(inputDisplay);
-                    console.log(r);
-                    setInputDisplay(r);
+                if (operator == '') {
+                    setInputDisplay("Erro");
                 }
 
             }
