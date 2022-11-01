@@ -13,6 +13,7 @@ const Calculadora = () => {
 
     /*d é o dígito*/
     const insereNum = (d) => {
+
         if (inputDisplay == 0) {
             setInputDisplay(d);
             if ((d === 'AC') || (d === '%') || (d === '+/-') || (d === '%') || (d === '+') ||
@@ -20,12 +21,12 @@ const Calculadora = () => {
                 setInputDisplay(0);
             }
             if (d === '.') {
-                console.log("OK");
                 setInputDisplay(d);
             }
         }
         else {
             setInputDisplay(inputDisplay + d);
+
 
             if (d == '+' || d == '-' || d == '/' || d == '*') {
                 console.log("Operações");
@@ -33,17 +34,30 @@ const Calculadora = () => {
                 setOldValue(inputDisplay);
                 setInputDisplay(0);
             }
+
             if (d === '=') {
-                console.log(oldValue);
-                console.log(operator);
-                console.log(inputDisplay);
-                let r = oldValue + operator + inputDisplay;
-                let result = eval(r);
-                setInputDisplay(result);
+                if(operator !=''){
+                    console.log(oldValue);
+                    console.log(operator);
+                    console.log(inputDisplay);
+                    let r = oldValue + operator + inputDisplay;
+                    let result = eval(r);
+                    setInputDisplay(result);
+                }
+                //Pressionado igual e operador é vazio
+                if(operator ==''){
+                    console.log("Condição 1");
+                   
+                    setOldValue(parseFloat(inputDisplay));
+                    setInputDisplay(parseFloat('0'));
+                    let r = inputDisplay + oldValue;
+                    console.log(oldValue);
+                    console.log(inputDisplay);
+                    console.log(r);
+                    setInputDisplay(r);
+                }
+
             }
-
-
-
 
             // Operações especiais
             if (d == 'AC') {
@@ -60,6 +74,22 @@ const Calculadora = () => {
                 setInputDisplay(r);
             }
 
+
+
+
+            // -------- Contador de virgula--------------------
+            var quant = 0
+            for (var i = 0; i < inputDisplay.length; i++) {
+                if (inputDisplay[i] == '.') {
+                    quant++
+                }
+            }
+            if ((quant >= 1) && (d === '.')) {
+                setInputDisplay("Erro");
+                setOperator(0);
+                setOldValue(0);
+            }
+            //--------------------------------------------------
         }
 
     }
