@@ -15,21 +15,23 @@ const Calculadora = () => {
     const insereNum = (d) => {
         if (inputDisplay == 0) {
             setInputDisplay(d);
+            if ((d === 'AC') || (d === '%') || (d === '+/-') || (d === '%') || (d === '+') ||
+                (d === '-') || (d === '*') || (d === '/') || (d === '=')) {
+                setInputDisplay(0);
+            }
+            if (d === '.') {
+                console.log("OK");
+                setInputDisplay(d);
+            }
         }
         else {
             setInputDisplay(inputDisplay + d);
-            if(inputDisplay.length>9){
-                console.log(parseFloat(inputDisplay));
-                let a = parseFloat(inputDisplay).toPrecision(5);
-                setInputDisplay(a);
-            }
 
             if (d == '+' || d == '-' || d == '/' || d == '*') {
                 console.log("Operações");
                 setOperator(d);
                 setOldValue(inputDisplay);
                 setInputDisplay(0);
-
             }
             if (d === '=') {
                 console.log(oldValue);
@@ -39,8 +41,15 @@ const Calculadora = () => {
                 let result = eval(r);
                 setInputDisplay(result);
             }
-            if (d === 'AC') {
-                setInputDisplay(0);
+
+
+
+
+            // Operações especiais
+            if (d == 'AC') {
+                setInputDisplay(0)
+                setOperator(0);
+                setOldValue(0);
             }
             if (d === '+/-') {
                 const r = parseFloat(inputDisplay) * -1;
