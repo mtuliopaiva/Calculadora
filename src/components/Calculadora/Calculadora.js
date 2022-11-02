@@ -3,7 +3,7 @@ import Display from '../Display/Display'
 import Keyboard from '../Keyboard/Keyboard'
 import './Calculadora.css'
 import Header from '../Header/Header'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const Calculadora = () => {
 
@@ -108,8 +108,6 @@ const Calculadora = () => {
     var dataAtual = new Date();
     var horas = dataAtual.getHours();
     var minutos = dataAtual.getMinutes();
-    var segundos = dataAtual.getSeconds();
-    var msegundos = dataAtual.getMilliseconds();
 
     const teste = () => {
         setHour(horas);
