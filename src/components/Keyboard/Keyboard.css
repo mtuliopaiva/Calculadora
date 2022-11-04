@@ -29,6 +29,7 @@
     padding-bottom: 5%;
     font-size: 1.5rem;
     font-weight: 500;
+    color: #000;
 }
 .special-operation:active{
     background-color: var(--btn-special-operations-active);
